@@ -13,105 +13,37 @@
         .active { display: flex; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
         
-        /* ======== 1. شاشة الباسورد (لوحة الأرقام الشبابية) ======== */
-        .delivery-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 2rem;
-            color: var(--neon);
-            letter-spacing: 3px;
-            margin: 0 0 5px 0;
-            text-shadow: 0 0 15px var(--neon-glow);
-        }
-        .delivery-sub {
-            font-size: 1.15rem;
-            color: #ccc;
-            letter-spacing: 1.5px;
-            margin-bottom: 30px;
-            font-weight: 700;
-        }
-        .dots-container {
-            display: flex;
-            gap: 18px;
-            justify-content: center;
-            margin-bottom: 35px;
-            direction: ltr;
-        }
-        .dot {
-            width: 16px;
-            height: 16px;
-            border-radius: 50%;
-            border: 2px solid var(--neon);
-            background: transparent;
-            transition: all 0.3s ease;
-        }
-        .dot.filled {
-            background: var(--neon);
-            box-shadow: 0 0 15px var(--neon);
-            transform: scale(1.15);
-        }
-        .keypad {
-            display: grid;
-            grid-template-columns: repeat(3, 75px);
-            gap: 20px;
-            justify-content: center;
-            align-items: center;
-            margin-bottom: 30px;
-            direction: ltr;
-        }
-        .key {
-            width: 75px;
-            height: 75px;
-            border-radius: 50%;
-            background: var(--panel);
-            border: 1.5px solid rgba(0, 243, 255, 0.35);
-            color: var(--neon);
-            font-size: 1.8rem;
-            font-family: 'Playfair Display', serif;
-            font-weight: bold;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            cursor: pointer;
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.7);
-            transition: all 0.2s ease;
-            user-select: none;
-            -webkit-tap-highlight-color: transparent;
-        }
-        .key:active, .key:hover {
-            background: var(--neon);
-            color: var(--bg);
-            box-shadow: 0 0 20px var(--neon);
-            transform: scale(0.95);
-        }
+        /* ======== 1. شاشة الباسورد ======== */
+        .delivery-title { font-family: 'Playfair Display', serif; font-size: 2rem; color: var(--neon); letter-spacing: 3px; margin: 0 0 5px 0; text-shadow: 0 0 15px var(--neon-glow); }
+        .delivery-sub { font-size: 1.15rem; color: #ccc; letter-spacing: 1.5px; margin-bottom: 30px; font-weight: 700; }
+        .dots-container { display: flex; gap: 18px; justify-content: center; margin-bottom: 35px; direction: ltr; }
+        .dot { width: 16px; height: 16px; border-radius: 50%; border: 2px solid var(--neon); background: transparent; transition: all 0.3s ease; }
+        .dot.filled { background: var(--neon); box-shadow: 0 0 15px var(--neon); transform: scale(1.15); }
+        .keypad { display: grid; grid-template-columns: repeat(3, 75px); gap: 20px; justify-content: center; align-items: center; margin-bottom: 30px; direction: ltr; }
+        .key { width: 75px; height: 75px; border-radius: 50%; background: var(--panel); border: 1.5px solid rgba(0, 243, 255, 0.35); color: var(--neon); font-size: 1.8rem; font-family: 'Playfair Display', serif; font-weight: bold; display: flex; justify-content: center; align-items: center; cursor: pointer; box-shadow: 0 6px 15px rgba(0, 0, 0, 0.7); transition: all 0.2s ease; user-select: none; -webkit-tap-highlight-color: transparent; }
+        .key:active, .key:hover { background: var(--neon); color: var(--bg); box-shadow: 0 0 20px var(--neon); transform: scale(0.95); }
         .hint-text { color: #888; font-size: 1rem; margin-top: 5px; }
-        @keyframes shake {
-            0%, 100% { transform: translateX(0); }
-            25% { transform: translateX(-10px); }
-            50% { transform: translateX(10px); }
-            75% { transform: translateX(-10px); }
-        }
+        @keyframes shake { 0%, 100% { transform: translateX(0); } 25% { transform: translateX(-10px); } 50% { transform: translateX(10px); } 75% { transform: translateX(-10px); } }
         .shake { animation: shake 0.4s ease-in-out; }
 
-        /* ======== 2. قسم التهنئة وكارت الأخوة ======== */
+        /* ======== 1.5. شاشة الفيديو ======== */
+        .video-container { width: 100%; max-width: 550px; border: 2px solid var(--neon); border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px var(--neon-glow); margin: 15px auto; background: #000; }
+        .video-container video { width: 100%; display: block; }
+        .skip-btn { background: transparent; color: #888; border: 1px solid #555; padding: 6px 18px; border-radius: 20px; margin-top: 20px; font-family: 'Cairo', sans-serif; cursor: pointer; transition: 0.3s; }
+        .skip-btn:hover { color: #fff; border-color: #fff; }
+
+        /* ======== 2. قسم التهنئة والكتابة التلقائية ======== */
         .title { font-size: 3rem; color: var(--neon); text-shadow: 0 0 15px var(--neon-glow); margin-bottom: 10px; }
         .btn { background: var(--neon); border: none; color: var(--bg); padding: 12px 40px; font-size: 1.25rem; font-family: 'Cairo', sans-serif; font-weight: 900; border-radius: 30px; cursor: pointer; box-shadow: 0 0 15px var(--neon-glow); margin-top: 25px; transition: 0.3s; }
         .btn:hover { transform: scale(1.06); box-shadow: 0 0 25px var(--neon); }
 
-        .brother-card {
-            background: linear-gradient(145deg, #16202a, #0d1218);
-            border: 1.5px solid var(--neon);
-            border-radius: 20px;
-            padding: 25px 20px;
-            max-width: 550px;
-            width: 95%;
-            margin: 15px auto;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.8), 0 0 20px rgba(0, 243, 255, 0.1);
-            line-height: 2;
-            font-size: 1.2rem;
-            color: #eaeaea;
-        }
+        .brother-card { background: linear-gradient(145deg, #16202a, #0d1218); border: 1.5px solid var(--neon); border-radius: 20px; padding: 25px 20px; max-width: 550px; width: 95%; margin: 15px auto; box-shadow: 0 10px 30px rgba(0,0,0,0.8), 0 0 20px rgba(0, 243, 255, 0.1); line-height: 2; font-size: 1.2rem; color: #eaeaea; min-height: 150px; }
+        
+        /* مؤشر الكتابة (Cursor) */
+        .typing-cursor::after { content: '|'; animation: blink 1s infinite; color: var(--neon); }
+        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
 
-        /* ======== 3. الجوابات (4 جوابات أخوة ورجولة) ======== */
+        /* ======== 3. الجوابات ======== */
         .env-container { display: flex; flex-wrap: wrap; justify-content: center; gap: 35px; margin: 30px 0; width: 100%; max-width: 700px; }
         .env-wrapper { position: relative; width: 280px; height: 180px; cursor: pointer; margin-bottom: 50px; }
         .env-back { position: absolute; bottom: 0; width: 100%; height: 100%; background: #0a4b50; border-radius: 5px; }
@@ -122,187 +54,38 @@
         .open .env-flap { transform: rotateX(180deg); z-index: 1; }
         .open .env-letter { transform: translateY(-135px); height: 290px; z-index: 4; overflow-y: auto; border-color: #fff; box-shadow: 0 0 25px var(--neon-glow); }
 
-        /* ======== 4. الستايل الجديد للصور: خط الزمن المضيء (VIP Timeline) ======== */
-        .timeline-container {
-            position: relative;
-            max-width: 850px;
-            width: 100%;
-            margin: 30px auto;
-            padding: 10px 0;
-        }
-        /* الخط المضيء اللي في النص */
-        .timeline-container::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            bottom: 0;
-            left: 50%;
-            width: 3px;
-            background: linear-gradient(to bottom, transparent, var(--neon), var(--neon), transparent);
-            transform: translateX(-50%);
-            box-shadow: 0 0 12px var(--neon);
-        }
-        .timeline-item {
-            position: relative;
-            width: 50%;
-            padding: 15px 30px;
-            box-sizing: border-box;
-            display: flex;
-            justify-content: center;
-        }
-        .timeline-item:nth-child(odd) {
-            right: 0;
-        }
-        .timeline-item:nth-child(even) {
-            right: 50%;
-        }
-        /* النقطة المضيئة على الخط لكل صورة */
-        .timeline-dot {
-            position: absolute;
-            top: 40px;
-            width: 18px;
-            height: 18px;
-            background: var(--bg);
-            border: 3px solid var(--neon);
-            border-radius: 50%;
-            box-shadow: 0 0 12px var(--neon);
-            z-index: 3;
-        }
-        .timeline-item:nth-child(odd) .timeline-dot {
-            left: -11px;
-        }
-        .timeline-item:nth-child(even) .timeline-dot {
-            right: -11px;
-        }
+        /* ======== 4. خط الزمن المضيء ======== */
+        .timeline-container { position: relative; max-width: 850px; width: 100%; margin: 30px auto; padding: 10px 0; }
+        .timeline-container::before { content: ''; position: absolute; top: 0; bottom: 0; left: 50%; width: 3px; background: linear-gradient(to bottom, transparent, var(--neon), var(--neon), transparent); transform: translateX(-50%); box-shadow: 0 0 12px var(--neon); }
+        .timeline-item { position: relative; width: 50%; padding: 15px 30px; box-sizing: border-box; display: flex; justify-content: center; }
+        .timeline-item:nth-child(odd) { right: 0; }
+        .timeline-item:nth-child(even) { right: 50%; }
+        .timeline-dot { position: absolute; top: 40px; width: 18px; height: 18px; background: var(--bg); border: 3px solid var(--neon); border-radius: 50%; box-shadow: 0 0 12px var(--neon); z-index: 3; }
+        .timeline-item:nth-child(odd) .timeline-dot { left: -11px; }
+        .timeline-item:nth-child(even) .timeline-dot { right: -11px; }
 
-        .memory-frame {
-            background: linear-gradient(145deg, #18222d, #0f141c);
-            border: 2px solid rgba(0, 243, 255, 0.45);
-            border-radius: 18px;
-            padding: 14px;
-            width: 100%;
-            max-width: 320px;
-            box-shadow: 0 12px 25px rgba(0,0,0,0.8);
-            transition: all 0.35s ease;
-            cursor: pointer;
-            position: relative;
-            overflow: hidden;
-        }
-        .memory-frame:hover {
-            transform: translateY(-6px) scale(1.03);
-            border-color: var(--neon);
-            box-shadow: 0 15px 30px rgba(0, 243, 255, 0.3);
-        }
-        .memory-num {
-            display: inline-block;
-            background: rgba(0, 243, 255, 0.12);
-            color: var(--neon);
-            border: 1px solid rgba(0, 243, 255, 0.4);
-            padding: 2px 14px;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            font-weight: bold;
-            margin-bottom: 10px;
-        }
-        .memory-frame img {
-            width: 100%;
-            height: auto; /* يعرض الصورة كاملة 100% بطبيعتها بدون قص ولا مللي */
-            max-height: 380px;
-            object-fit: contain;
-            border-radius: 12px;
-            display: block;
-            background: #07090c;
-        }
-        .memory-caption {
-            margin-top: 12px;
-            font-size: 1.25rem;
-            font-weight: 800;
-            color: #fff;
-            text-shadow: 0 0 8px rgba(0, 243, 255, 0.3);
-        }
+        .memory-frame { background: linear-gradient(145deg, #18222d, #0f141c); border: 2px solid rgba(0, 243, 255, 0.45); border-radius: 18px; padding: 14px; width: 100%; max-width: 320px; box-shadow: 0 12px 25px rgba(0,0,0,0.8); transition: all 0.35s ease; cursor: pointer; position: relative; overflow: hidden; }
+        .memory-frame:hover { transform: translateY(-6px) scale(1.03); border-color: var(--neon); box-shadow: 0 15px 30px rgba(0, 243, 255, 0.3); }
+        .memory-num { display: inline-block; background: rgba(0, 243, 255, 0.12); color: var(--neon); border: 1px solid rgba(0, 243, 255, 0.4); padding: 2px 14px; border-radius: 20px; font-size: 0.85rem; font-weight: bold; margin-bottom: 10px; }
+        .memory-frame img { width: 100%; height: auto; max-height: 380px; object-fit: contain; border-radius: 12px; display: block; background: #07090c; }
+        .memory-caption { margin-top: 12px; font-size: 1.25rem; font-weight: 800; color: #fff; text-shadow: 0 0 8px rgba(0, 243, 255, 0.3); }
 
-        /* ضبط شكل الخط الزمني على شاشات الموبايل عشان الصور تكون كبيرة وواضحة */
         @media (max-width: 680px) {
-            .timeline-container::before {
-                left: auto;
-                right: 15px;
-                transform: none;
-            }
-            .timeline-item, .timeline-item:nth-child(odd), .timeline-item:nth-child(even) {
-                width: 100%;
-                right: 0;
-                padding: 12px 40px 12px 10px;
-            }
-            .timeline-item:nth-child(odd) .timeline-dot, .timeline-item:nth-child(even) .timeline-dot {
-                left: auto;
-                right: 5px;
-            }
-            .memory-frame {
-                max-width: 100%;
-            }
+            .timeline-container::before { left: auto; right: 15px; transform: none; }
+            .timeline-item, .timeline-item:nth-child(odd), .timeline-item:nth-child(even) { width: 100%; right: 0; padding: 12px 40px 12px 10px; }
+            .timeline-item:nth-child(odd) .timeline-dot, .timeline-item:nth-child(even) .timeline-dot { left: auto; right: 5px; }
+            .memory-frame { max-width: 100%; }
         }
 
-        /* ======== نافذة تكبير الصورة السينمائية (Lightbox) ======== */
-        #lightbox {
-            display: none;
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100vh;
-            background: rgba(5, 7, 10, 0.95);
-            z-index: 20000;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-            box-sizing: border-box;
-            backdrop-filter: blur(8px);
-        }
+        /* ======== نافذة التكبير ======== */
+        #lightbox { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100vh; background: rgba(5, 7, 10, 0.95); z-index: 20000; flex-direction: column; justify-content: center; align-items: center; padding: 20px; box-sizing: border-box; backdrop-filter: blur(8px); }
         #lightbox.show { display: flex; animation: fadeIn 0.3s ease; }
-        #lightboxImg {
-            max-width: 92%;
-            max-height: 72vh;
-            border: 2px solid var(--neon);
-            border-radius: 15px;
-            box-shadow: 0 0 35px var(--neon-glow);
-            object-fit: contain;
-        }
-        #lightboxCaption {
-            color: var(--neon);
-            font-size: 1.5rem;
-            font-weight: 900;
-            margin-top: 15px;
-        }
-        .lb-controls {
-            display: flex;
-            gap: 20px;
-            margin-top: 15px;
-        }
-        .lb-btn {
-            background: var(--panel);
-            border: 2px solid var(--neon);
-            color: var(--neon);
-            padding: 8px 25px;
-            border-radius: 25px;
-            font-family: 'Cairo', sans-serif;
-            font-weight: bold;
-            font-size: 1.1rem;
-            cursor: pointer;
-        }
-        .lb-close {
-            position: absolute;
-            top: 20px;
-            left: 25px;
-            background: transparent;
-            border: 2px solid #ff4d4d;
-            color: #ff4d4d;
-            width: 42px;
-            height: 42px;
-            border-radius: 50%;
-            font-size: 1.3rem;
-            font-weight: bold;
-            cursor: pointer;
-        }
-
-        /* الايموجيهات المتطايرة */
+        #lightboxImg { max-width: 92%; max-height: 72vh; border: 2px solid var(--neon); border-radius: 15px; box-shadow: 0 0 35px var(--neon-glow); object-fit: contain; }
+        #lightboxCaption { color: var(--neon); font-size: 1.5rem; font-weight: 900; margin-top: 15px; }
+        .lb-controls { display: flex; gap: 20px; margin-top: 15px; }
+        .lb-btn { background: var(--panel); border: 2px solid var(--neon); color: var(--neon); padding: 8px 25px; border-radius: 25px; font-family: 'Cairo', sans-serif; font-weight: bold; font-size: 1.1rem; cursor: pointer; }
+        .lb-close { position: absolute; top: 20px; left: 25px; background: transparent; border: 2px solid #ff4d4d; color: #ff4d4d; width: 42px; height: 42px; border-radius: 50%; font-size: 1.3rem; font-weight: bold; cursor: pointer; }
+        
         .particle { position: fixed; bottom: -50px; pointer-events: none; opacity: 0; animation: floatUp 4s linear forwards; font-size: 2rem; z-index: 9999; }
         @keyframes floatUp { 0% { transform: translateY(0) scale(0.5); opacity: 1; } 100% { transform: translateY(-110vh) scale(1.5); opacity: 0; } }
     </style>
@@ -311,204 +94,98 @@
     
     <audio id="bgMusic" src="music.mp3" loop preload="auto"></audio>
 
-    <!-- 1. شاشة الباسورد (14/10) بنفس ستايل الزراير -->
+    <!-- 1. شاشة الباسورد (1410) -->
     <div id="sec1" class="sec active">
         <h1 class="delivery-title">A SPECIAL DELIVERY</h1>
         <div class="delivery-sub">⚡ FOR MY BROTHER MEDO</div>
         
         <div class="dots-container" id="dots">
-            <div class="dot"></div>
-            <div class="dot"></div>
-            <div class="dot"></div>
-            <div class="dot"></div>
+            <div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
         </div>
 
         <div class="keypad">
-            <div class="key" onclick="pressKey('3')">3</div>
-            <div class="key" onclick="pressKey('2')">2</div>
-            <div class="key" onclick="pressKey('1')">1</div>
-            
-            <div class="key" onclick="pressKey('6')">6</div>
-            <div class="key" onclick="pressKey('5')">5</div>
-            <div class="key" onclick="pressKey('4')">4</div>
-            
-            <div class="key" onclick="pressKey('9')">9</div>
-            <div class="key" onclick="pressKey('8')">8</div>
-            <div class="key" onclick="pressKey('7')">7</div>
-            
-            <div></div>
-            <div class="key" onclick="pressKey('0')">0</div>
-            <div></div>
+            <div class="key" onclick="pressKey('3')">3</div><div class="key" onclick="pressKey('2')">2</div><div class="key" onclick="pressKey('1')">1</div>
+            <div class="key" onclick="pressKey('6')">6</div><div class="key" onclick="pressKey('5')">5</div><div class="key" onclick="pressKey('4')">4</div>
+            <div class="key" onclick="pressKey('9')">9</div><div class="key" onclick="pressKey('8')">8</div><div class="key" onclick="pressKey('7')">7</div>
+            <div></div><div class="key" onclick="pressKey('0')">0</div><div></div>
         </div>
-
         <p class="hint-text">اكتب تاريخ ميلادك يا بطل لفتح المفاجأة (1410)</p>
     </div>
 
-    <!-- 2. شاشة التهنئة والأخوة -->
+    <!-- 1.5. شاشة الفيديو -->
+    <div id="secVideo" class="sec">
+        <h2 class="title" style="font-size: 2rem; margin-bottom: 20px;">رسالة خاصة 🎬</h2>
+        <div class="video-container">
+            <!-- ضفنا playsinline و webkit-playsinline عشان يشتغل أوتوماتيك على الأيفون والأندرويد بدون مشاكل -->
+            <video id="introVideo" src="video.mp4" playsinline webkit-playsinline></video>
+        </div>
+        <button class="skip-btn" onclick="skipVideo()">تخطي الفيديو ⏭️</button>
+    </div>
+
+    <!-- 2. شاشة التهنئة والكتابة التلقائية -->
     <div id="sec2" class="sec">
         <h1 class="title">Happy Birthday Medo! ⚡</h1>
         
         <div class="brother-card">
-            كل سنة وأنت طيب يا محمد، يا أخويا وحبيبي وصاحبي وضهري اللي بتسند عليه في الدنيا. يوم 14 أكتوبر ده مش مجرد تاريخ، ده اليوم اللي ربنا رزقني فيه بأجدع أخ وأنظف قلب.<br><br>
-            وجودك في حياتي هو الأمان والسند، ومهما اتكلمت مش هوفيك حقك ولا هقدر أوصف غلاوتك عندي. يا رب أشوفك دايماً أسعد وأنجح إنسان في الدنيا وتفضل دايماً منور حياتنا وماليها فرحة ورجولة!
-            <span style="color: var(--neon); font-weight: 900; font-size:1.4rem; display:block; margin-top:15px;">- أخوك وحبيبك يوسف 🤍⚡</span>
+            <div id="typewriterText" class="typing-cursor"></div>
+            <span id="signatureText" style="color: var(--neon); font-weight: 900; font-size:1.4rem; display:none; margin-top:15px;">- أخوك وحبيبك يوسف 🤍⚡</span>
         </div>
         
-        <button class="btn" onclick="nextSec('sec2', 'secLetters')">افتح رسايلي ليك 💌</button>
+        <button class="btn" id="btnNextLetters" onclick="nextSec('sec2', 'secLetters')" style="display: none;">افتح رسايلي ليك 💌</button>
     </div>
 
-    <!-- 3. شاشة الجوابات (4 جوابات كلها أخوة ورجولة) -->
+    <!-- 3. شاشة الجوابات -->
     <div id="secLetters" class="sec">
         <h2 class="title" style="font-size: 2.5rem;">كلام من القلب لأخويا 🤍</h2>
         <p style="color: #aaa; margin-top: 0;">اضغط على كل جواب عشان تفتحه وتقرأ الرسالة</p>
         
         <div class="env-container">
-            <!-- جواب 1 -->
             <div class="env-wrapper" onclick="this.classList.toggle('open')">
                 <div class="env-back"></div>
                 <div class="env-letter">أخويا وحبيبي،<br>بيقولوا إن الأخ هو السند الحقيقي، وأنت أثبتلي إنك مش بس أخ، أنت ضهر وجبل بتسند عليه وأنا مطمن. ربنا يخليك ليا وميحرمنيش من وقفتك جنبي طول العمر يا بطل. ⚡🤍</div>
-                <div class="env-flap"></div><div class="env-front"></div>
-                <div class="env-label">السند والضهر 🦾</div>
+                <div class="env-flap"></div><div class="env-front"></div><div class="env-label">السند والضهر 🦾</div>
             </div>
-
-            <!-- جواب 2 -->
             <div class="env-wrapper" onclick="this.classList.toggle('open')">
                 <div class="env-back"></div>
                 <div class="env-letter">صاحبي الجدع،<br>أحلى حاجة في الدنيا لما يكون أخوك هو نفسه أقرب صاحب ليك. ضحكنا ومواقفنا ووقفتنا مع بعض بالدنيا وما فيها. كل سنة وأنت أجدع صاحب وأغلى أخ في الكون كله. 🔥💙</div>
-                <div class="env-flap"></div><div class="env-front"></div>
-                <div class="env-label">أخويا وصاحبي 🔥</div>
+                <div class="env-flap"></div><div class="env-front"></div><div class="env-label">أخويا وصاحبي 🔥</div>
             </div>
-
-            <!-- جواب 3 -->
             <div class="env-wrapper" onclick="this.classList.toggle('open')">
                 <div class="env-back"></div>
                 <div class="env-letter">ميدو الغالي،<br>طول عمري فخور بيك قدام الدنيا كلها، بجدعنتك وأدبك ورجولتك اللي مفيش زيها. خليك متأكد إن أخوك الكبير دايماً في ضهرك ومعاك في أي حاجة وفي أي وقت تحتاجني فيه. 👑⚡</div>
-                <div class="env-flap"></div><div class="env-front"></div>
-                <div class="env-label">فخر العيلة 👑</div>
+                <div class="env-flap"></div><div class="env-front"></div><div class="env-label">فخر العيلة 👑</div>
             </div>
-
-            <!-- جواب 4 -->
             <div class="env-wrapper" onclick="this.classList.toggle('open')">
                 <div class="env-back"></div>
                 <div class="env-letter">دعوة من نص قلبي،<br>في يوم ميلادك، بدعي ربنا يفتحلك أبواب الخير والرزق كلها، ويبعد عنك أي شر، ويفرح قلبك ويحققلك كل اللي بتتمناه، وتكون السنة دي أحلى سنة في عمرك يا حبيبي. 🎉🤍</div>
-                <div class="env-flap"></div><div class="env-front"></div>
-                <div class="env-label">دعوة من القلب 🤍</div>
+                <div class="env-flap"></div><div class="env-front"></div><div class="env-label">دعوة من القلب 🤍</div>
             </div>
         </div>
-
         <button class="btn" onclick="nextSec('secLetters', 'sec3')">شريط ذكرياتنا 📸</button>
     </div>
 
-    <!-- 4. شاشة الصور الجديدة (خط الزمن المضيء VIP Timeline) -->
+    <!-- 4. شاشة الصور -->
     <div id="sec3" class="sec">
         <h2 class="title" style="font-size: 2.5rem; margin-bottom: 5px;">أحلى ذكرياتنا مع بعض 📸</h2>
         <p style="color: #aaa; margin-top: 0;">اضغط على أي صورة عشان تكبرها بالحجم الكامل 🔍</p>
         
         <div class="timeline-container">
-            <div class="timeline-item">
-                <div class="timeline-dot"></div>
-                <div class="memory-frame" onclick="openLightbox(0)">
-                    <div class="memory-num">ذكرى 01</div>
-                    <img src="photo1.jpg">
-                    <div class="memory-caption">أخويا وحبيبي ⚡🤍</div>
-                </div>
-            </div>
-
-            <div class="timeline-item">
-                <div class="timeline-dot"></div>
-                <div class="memory-frame" onclick="openLightbox(1)">
-                    <div class="memory-num">ذكرى 02</div>
-                    <img src="photo2.jpg">
-                    <div class="memory-caption">سندي وضهري في الدنيا 🦾</div>
-                </div>
-            </div>
-
-            <div class="timeline-item">
-                <div class="timeline-dot"></div>
-                <div class="memory-frame" onclick="openLightbox(2)">
-                    <div class="memory-num">ذكرى 03</div>
-                    <img src="photo3.jpg">
-                    <div class="memory-caption">الرجولة والجدعنة كلها 🔥</div>
-                </div>
-            </div>
-
-            <div class="timeline-item">
-                <div class="timeline-dot"></div>
-                <div class="memory-frame" onclick="openLightbox(3)">
-                    <div class="memory-num">ذكرى 04</div>
-                    <img src="photo4.jpg">
-                    <div class="memory-caption">أجدع صاحب وأغلى أخ 💙</div>
-                </div>
-            </div>
-
-            <div class="timeline-item">
-                <div class="timeline-dot"></div>
-                <div class="memory-frame" onclick="openLightbox(4)">
-                    <div class="memory-num">ذكرى 05</div>
-                    <img src="photo5.jpg">
-                    <div class="memory-caption">البطل ميدو 👑</div>
-                </div>
-            </div>
-
-            <div class="timeline-item">
-                <div class="timeline-dot"></div>
-                <div class="memory-frame" onclick="openLightbox(5)">
-                    <div class="memory-num">ذكرى 06</div>
-                    <img src="photo6.jpg">
-                    <div class="memory-caption">أحلى الأيام والذكريات ✨</div>
-                </div>
-            </div>
-
-            <div class="timeline-item">
-                <div class="timeline-dot"></div>
-                <div class="memory-frame" onclick="openLightbox(6)">
-                    <div class="memory-num">ذكرى 07</div>
-                    <img src="photo7.jpg">
-                    <div class="memory-caption">منور حياتنا دايماً 🌟</div>
-                </div>
-            </div>
-
-            <div class="timeline-item">
-                <div class="timeline-dot"></div>
-                <div class="memory-frame" onclick="openLightbox(7)">
-                    <div class="memory-num">ذكرى 08</div>
-                    <img src="photo8.jpg">
-                    <div class="memory-caption">ضحكتك بالدنيا 🤍</div>
-                </div>
-            </div>
-
-            <div class="timeline-item">
-                <div class="timeline-dot"></div>
-                <div class="memory-frame" onclick="openLightbox(8)">
-                    <div class="memory-num">ذكرى 09</div>
-                    <img src="photo9.jpg">
-                    <div class="memory-caption">فرحة البيت والعيلة 🎉</div>
-                </div>
-            </div>
-
-            <div class="timeline-item">
-                <div class="timeline-dot"></div>
-                <div class="memory-frame" onclick="openLightbox(9)">
-                    <div class="memory-num">ذكرى 10</div>
-                    <img src="photo10.jpg">
-                    <div class="memory-caption">كل سنة وأنت طيب يا غالي 🎂</div>
-                </div>
-            </div>
-
-            <div class="timeline-item">
-                <div class="timeline-dot"></div>
-                <div class="memory-frame" onclick="openLightbox(10)">
-                    <div class="memory-num">ذكرى 11</div>
-                    <img src="photo11.jpg">
-                    <div class="memory-caption">ربنا يحفظك ليا طول العمر 🤍⚡</div>
-                </div>
-            </div>
+            <div class="timeline-item"><div class="timeline-dot"></div><div class="memory-frame" onclick="openLightbox(0)"><div class="memory-num">ذكرى 01</div><img src="photo1.jpg"><div class="memory-caption">أخويا وحبيبي ⚡🤍</div></div></div>
+            <div class="timeline-item"><div class="timeline-dot"></div><div class="memory-frame" onclick="openLightbox(1)"><div class="memory-num">ذكرى 02</div><img src="photo2.jpg"><div class="memory-caption">سندي وضهري في الدنيا 🦾</div></div></div>
+            <div class="timeline-item"><div class="timeline-dot"></div><div class="memory-frame" onclick="openLightbox(2)"><div class="memory-num">ذكرى 03</div><img src="photo3.jpg"><div class="memory-caption">الرجولة والجدعنة كلها 🔥</div></div></div>
+            <div class="timeline-item"><div class="timeline-dot"></div><div class="memory-frame" onclick="openLightbox(3)"><div class="memory-num">ذكرى 04</div><img src="photo4.jpg"><div class="memory-caption">أجدع صاحب وأغلى أخ 💙</div></div></div>
+            <div class="timeline-item"><div class="timeline-dot"></div><div class="memory-frame" onclick="openLightbox(4)"><div class="memory-num">ذكرى 05</div><img src="photo5.jpg"><div class="memory-caption">البطل ميدو 👑</div></div></div>
+            <div class="timeline-item"><div class="timeline-dot"></div><div class="memory-frame" onclick="openLightbox(5)"><div class="memory-num">ذكرى 06</div><img src="photo6.jpg"><div class="memory-caption">أحلى الأيام والذكريات ✨</div></div></div>
+            <div class="timeline-item"><div class="timeline-dot"></div><div class="memory-frame" onclick="openLightbox(6)"><div class="memory-num">ذكرى 07</div><img src="photo7.jpg"><div class="memory-caption">منور حياتنا دايماً 🌟</div></div></div>
+            <div class="timeline-item"><div class="timeline-dot"></div><div class="memory-frame" onclick="openLightbox(7)"><div class="memory-num">ذكرى 08</div><img src="photo8.jpg"><div class="memory-caption">ضحكتك بالدنيا 🤍</div></div></div>
+            <div class="timeline-item"><div class="timeline-dot"></div><div class="memory-frame" onclick="openLightbox(8)"><div class="memory-num">ذكرى 09</div><img src="photo9.jpg"><div class="memory-caption">فرحة البيت والعيلة 🎉</div></div></div>
+            <div class="timeline-item"><div class="timeline-dot"></div><div class="memory-frame" onclick="openLightbox(9)"><div class="memory-num">ذكرى 10</div><img src="photo10.jpg"><div class="memory-caption">كل سنة وأنت طيب يا غالي 🎂</div></div></div>
+            <div class="timeline-item"><div class="timeline-dot"></div><div class="memory-frame" onclick="openLightbox(10)"><div class="memory-num">ذكرى 11</div><img src="photo11.jpg"><div class="memory-caption">ربنا يحفظك ليا طول العمر 🤍⚡</div></div></div>
         </div>
-
         <button class="btn" onclick="location.reload()" style="margin-top: 30px;">إعادة العرض من الأول ↻</button>
     </div>
 
-    <!-- نافذة عرض الصورة المكبرة (Lightbox) -->
+    <!-- نافذة التكبير -->
     <div id="lightbox" onclick="if(event.target.id==='lightbox') closeLightbox()">
         <button class="lb-close" onclick="closeLightbox()">✕</button>
         <img id="lightboxImg" src="">
@@ -520,9 +197,9 @@
     </div>
 
     <script>
-        // ======== 1. برمجة لوحة الباسورد (1410) ========
         let enteredPin = "";
 
+        // 1. برمجة الباسورد وعرض الفيديو
         function pressKey(num) {
             if (enteredPin.length < 4) {
                 enteredPin += num;
@@ -531,7 +208,17 @@
                 if (enteredPin === "1410") {
                     const dots = document.querySelectorAll('.dot');
                     dots.forEach(d => d.classList.add('filled'));
-                    setTimeout(unlockSuccess, 250);
+                    
+                    let vid = document.getElementById('introVideo');
+                    // خدعة برمجية: بندي أمر تشغيل الفيديو في نفس لحظة الضغطة عشان المتصفح ميمنعوش
+                    vid.play().catch(e => console.log("المتصفح منع التشغيل التلقائي"));
+
+                    // بعد نص ثانية ننقله لشاشة الفيديو وهو شغال
+                    setTimeout(() => {
+                        nextSec('sec1', 'secVideo');
+                        vid.onended = function() { skipVideo(); };
+                    }, 400);
+
                 } else if (enteredPin.length === 4) {
                     const dotsContainer = document.getElementById('dots');
                     dotsContainer.classList.add('shake');
@@ -547,22 +234,52 @@
         function updateDots() {
             const dots = document.querySelectorAll('.dot');
             dots.forEach((dot, index) => {
-                if (index < enteredPin.length) {
-                    dot.classList.add('filled');
-                } else {
-                    dot.classList.remove('filled');
-                }
+                if (index < enteredPin.length) dot.classList.add('filled');
+                else dot.classList.remove('filled');
             });
         }
 
-        function unlockSuccess() {
+        // 2. برمجة تخطي الفيديو وبدء الموسيقى والكتابة
+        function skipVideo() {
+            let vid = document.getElementById('introVideo');
+            vid.pause();
+            
+            // تشغيل الأغنية الخلفية
             let audio = document.getElementById('bgMusic');
             audio.volume = 1;
-            let playPromise = audio.play();
-            if (playPromise !== undefined) { playPromise.catch(error => console.log("محظور بواسطة المتصفح")); }
+            audio.play().catch(e => console.log("تم حظر الموسيقى"));
 
-            nextSec('sec1', 'sec2'); 
+            nextSec('secVideo', 'sec2');
             createParticles(['⚡', '🔥', '💙', '👑', '🤍']);
+            startTypewriter(); // تشغيل الكتابة التلقائية
+        }
+
+        // 3. برمجة الكتابة التلقائية (الآلة الكاتبة)
+        const messageText = "كل سنة وأنت طيب يا محمد، يا أخويا وحبيبي وصاحبي وضهري اللي بتسند عليه في الدنيا. يوم 14 أكتوبر ده مش مجرد تاريخ، ده اليوم اللي ربنا رزقني فيه بأجدع أخ وأنظف قلب.\n\nوجودك في حياتي هو الأمان والسند، ومهما اتكلمت مش هوفيك حقك ولا هقدر أوصف غلاوتك عندي. يا رب أشوفك دايماً أسعد وأنجح إنسان في الدنيا وتفضل دايماً منور حياتنا وماليها فرحة ورجولة!";
+        let charIndex = 0;
+
+        function startTypewriter() {
+            const el = document.getElementById("typewriterText");
+            const btn = document.getElementById("btnNextLetters");
+            const sig = document.getElementById("signatureText");
+            el.innerHTML = "";
+            charIndex = 0;
+            btn.style.display = "none";
+            sig.style.display = "none";
+
+            function type() {
+                if (charIndex < messageText.length) {
+                    let char = messageText.charAt(charIndex);
+                    el.innerHTML += (char === "\n") ? "<br>" : char;
+                    charIndex++;
+                    setTimeout(type, 45); // سرعة الكتابة
+                } else {
+                    el.classList.remove('typing-cursor');
+                    sig.style.display = "block";
+                    setTimeout(() => { btn.style.display = "block"; }, 500); // يظهر الزرار بعد النهاية
+                }
+            }
+            type();
         }
 
         function nextSec(hideId, showId) {
@@ -571,18 +288,13 @@
             window.scrollTo(0, 0);
         }
 
-        // ======== 2. برمجة العارض السينمائي المكبر للصور ========
+        // 4. برمجة العارض السينمائي (Lightbox)
         const galleryData = [
-            { src: "photo1.jpg", text: "أخويا وحبيبي ⚡🤍" },
-            { src: "photo2.jpg", text: "سندي وضهري في الدنيا 🦾" },
-            { src: "photo3.jpg", text: "الرجولة والجدعنة كلها 🔥" },
-            { src: "photo4.jpg", text: "أجدع صاحب وأغلى أخ 💙" },
-            { src: "photo5.jpg", text: "البطل ميدو 👑" },
-            { src: "photo6.jpg", text: "أحلى الأيام والذكريات ✨" },
-            { src: "photo7.jpg", text: "منور حياتنا دايماً 🌟" },
-            { src: "photo8.jpg", text: "ضحكتك بالدنيا 🤍" },
-            { src: "photo9.jpg", text: "فرحة البيت والعيلة 🎉" },
-            { src: "photo10.jpg", text: "كل سنة وأنت طيب يا غالي 🎂" },
+            { src: "photo1.jpg", text: "أخويا وحبيبي ⚡🤍" }, { src: "photo2.jpg", text: "سندي وضهري في الدنيا 🦾" },
+            { src: "photo3.jpg", text: "الرجولة والجدعنة كلها 🔥" }, { src: "photo4.jpg", text: "أجدع صاحب وأغلى أخ 💙" },
+            { src: "photo5.jpg", text: "البطل ميدو 👑" }, { src: "photo6.jpg", text: "أحلى الأيام والذكريات ✨" },
+            { src: "photo7.jpg", text: "منور حياتنا دايماً 🌟" }, { src: "photo8.jpg", text: "ضحكتك بالدنيا 🤍" },
+            { src: "photo9.jpg", text: "فرحة البيت والعيلة 🎉" }, { src: "photo10.jpg", text: "كل سنة وأنت طيب يا غالي 🎂" },
             { src: "photo11.jpg", text: "ربنا يحفظك ليا طول العمر 🤍⚡" }
         ];
         let currentLbIndex = 0;
@@ -592,16 +304,11 @@
             updateLightbox();
             document.getElementById('lightbox').classList.add('show');
         }
-
-        function closeLightbox() {
-            document.getElementById('lightbox').classList.remove('show');
-        }
-
+        function closeLightbox() { document.getElementById('lightbox').classList.remove('show'); }
         function changeLightbox(step) {
             currentLbIndex = (currentLbIndex + step + galleryData.length) % galleryData.length;
             updateLightbox();
         }
-
         function updateLightbox() {
             document.getElementById('lightboxImg').src = galleryData[currentLbIndex].src;
             document.getElementById('lightboxCaption').innerText = galleryData[currentLbIndex].text;
