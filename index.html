@@ -9,15 +9,15 @@
         :root { --neon: #00f3ff; --neon-glow: rgba(0, 243, 255, 0.35); --bg: #0b0c10; --panel: #141a22; }
         body { margin: 0; background: var(--bg); color: #fff; font-family: 'Cairo', sans-serif; text-align: center; overflow-x: hidden; }
         
-        .sec { display: none; min-height: 100vh; flex-direction: column; justify-content: center; align-items: center; padding: 30px 15px; box-sizing: border-box; animation: fadeIn 0.7s ease; }
+        .sec { display: none; min-height: 100vh; flex-direction: column; justify-content: center; align-items: center; padding: 30px 15px; box-sizing: border-box; animation: fadeIn 0.5s ease; }
         .active { display: flex; }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
         
         /* ======== 1. شاشة الباسورد ======== */
         .delivery-title { font-family: 'Playfair Display', serif; font-size: 2rem; color: var(--neon); letter-spacing: 3px; margin: 0 0 5px 0; text-shadow: 0 0 15px var(--neon-glow); }
         .delivery-sub { font-size: 1.15rem; color: #ccc; letter-spacing: 1.5px; margin-bottom: 30px; font-weight: 700; }
         .dots-container { display: flex; gap: 18px; justify-content: center; margin-bottom: 35px; direction: ltr; }
-        .dot { width: 16px; height: 16px; border-radius: 50%; border: 2px solid var(--neon); background: transparent; transition: all 0.3s ease; }
+        .dot { width: 16px; height: 16px; border-radius: 50%; border: 2px solid var(--neon); background: transparent; transition: all 0.2s ease; }
         .dot.filled { background: var(--neon); box-shadow: 0 0 15px var(--neon); transform: scale(1.15); }
         .keypad { display: grid; grid-template-columns: repeat(3, 75px); gap: 20px; justify-content: center; align-items: center; margin-bottom: 30px; direction: ltr; }
         .key { width: 75px; height: 75px; border-radius: 50%; background: var(--panel); border: 1.5px solid rgba(0, 243, 255, 0.35); color: var(--neon); font-size: 1.8rem; font-family: 'Playfair Display', serif; font-weight: bold; display: flex; justify-content: center; align-items: center; cursor: pointer; box-shadow: 0 6px 15px rgba(0, 0, 0, 0.7); transition: all 0.2s ease; user-select: none; -webkit-tap-highlight-color: transparent; }
@@ -27,7 +27,16 @@
         .shake { animation: shake 0.4s ease-in-out; }
 
         /* ======== 1.5. شاشة الفيديو ======== */
-        .video-container { width: 100%; max-width: 550px; border: 2px solid var(--neon); border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px var(--neon-glow); margin: 15px auto; background: #000; }
+        .video-container { 
+            width: 100%; 
+            max-width: 550px; 
+            border: 2px solid var(--neon); 
+            border-radius: 15px; 
+            overflow: hidden; 
+            box-shadow: 0 10px 30px var(--neon-glow); 
+            margin: 15px auto; 
+            background: #000;
+        }
         .video-container video { width: 100%; display: block; }
         .skip-btn { background: transparent; color: #888; border: 1px solid #555; padding: 6px 18px; border-radius: 20px; margin-top: 20px; font-family: 'Cairo', sans-serif; cursor: pointer; transition: 0.3s; }
         .skip-btn:hover { color: #fff; border-color: #fff; }
@@ -116,8 +125,8 @@
     <div id="secVideo" class="sec">
         <h2 class="title" style="font-size: 2rem; margin-bottom: 20px;">رسالة خاصة 🎬</h2>
         <div class="video-container">
-            <!-- ضفنا playsinline و webkit-playsinline عشان يشتغل أوتوماتيك على الأيفون والأندرويد بدون مشاكل -->
-            <video id="introVideo" src="video.mp4" playsinline webkit-playsinline></video>
+            <!-- ضفنا preload="auto" عشان يحمل الفيديو في الخلفية من قبل ما تكتب الباسورد -->
+            <video id="introVideo" src="video.mp4" preload="auto" playsinline webkit-playsinline></video>
         </div>
         <button class="skip-btn" onclick="skipVideo()">تخطي الفيديو ⏭️</button>
     </div>
@@ -170,17 +179,17 @@
         <p style="color: #aaa; margin-top: 0;">اضغط على أي صورة عشان تكبرها بالحجم الكامل 🔍</p>
         
         <div class="timeline-container">
-            <div class="timeline-item"><div class="timeline-dot"></div><div class="memory-frame" onclick="openLightbox(0)"><div class="memory-num">ذكرى 01</div><img src="photo1.jpeg"><div class="memory-caption">أخويا وحبيبي ⚡🤍</div></div></div>
-            <div class="timeline-item"><div class="timeline-dot"></div><div class="memory-frame" onclick="openLightbox(1)"><div class="memory-num">ذكرى 02</div><img src="photo2.jpeg"><div class="memory-caption">سندي وضهري في الدنيا 🦾</div></div></div>
-            <div class="timeline-item"><div class="timeline-dot"></div><div class="memory-frame" onclick="openLightbox(2)"><div class="memory-num">ذكرى 03</div><img src="photo3.jpeg"><div class="memory-caption">الرجولة والجدعنة كلها 🔥</div></div></div>
-            <div class="timeline-item"><div class="timeline-dot"></div><div class="memory-frame" onclick="openLightbox(3)"><div class="memory-num">ذكرى 04</div><img src="photo4.jpeg"><div class="memory-caption">أجدع صاحب وأغلى أخ 💙</div></div></div>
-            <div class="timeline-item"><div class="timeline-dot"></div><div class="memory-frame" onclick="openLightbox(4)"><div class="memory-num">ذكرى 05</div><img src="photo5.JPG"><div class="memory-caption">البطل ميدو 👑</div></div></div>
-            <div class="timeline-item"><div class="timeline-dot"></div><div class="memory-frame" onclick="openLightbox(5)"><div class="memory-num">ذكرى 06</div><img src="photo6.jpeg"><div class="memory-caption">أحلى الأيام والذكريات ✨</div></div></div>
-            <div class="timeline-item"><div class="timeline-dot"></div><div class="memory-frame" onclick="openLightbox(6)"><div class="memory-num">ذكرى 07</div><img src="photo7.jpeg"><div class="memory-caption">منور حياتنا دايماً 🌟</div></div></div>
-            <div class="timeline-item"><div class="timeline-dot"></div><div class="memory-frame" onclick="openLightbox(7)"><div class="memory-num">ذكرى 08</div><img src="photo8.jpeg"><div class="memory-caption">ضحكتك بالدنيا 🤍</div></div></div>
-            <div class="timeline-item"><div class="timeline-dot"></div><div class="memory-frame" onclick="openLightbox(8)"><div class="memory-num">ذكرى 09</div><img src="photo9.jpeg"><div class="memory-caption">فرحة البيت والعيلة 🎉</div></div></div>
-            <div class="timeline-item"><div class="timeline-dot"></div><div class="memory-frame" onclick="openLightbox(9)"><div class="memory-num">ذكرى 10</div><img src="photo10.jpeg"><div class="memory-caption">كل سنة وأنت طيب يا غالي 🎂</div></div></div>
-            <div class="timeline-item"><div class="timeline-dot"></div><div class="memory-frame" onclick="openLightbox(10)"><div class="memory-num">ذكرى 11</div><img src="photo11.jpeg"><div class="memory-caption">ربنا يحفظك ليا طول العمر 🤍⚡</div></div></div>
+            <div class="timeline-item"><div class="timeline-dot"></div><div class="memory-frame" onclick="openLightbox(0)"><div class="memory-num">ذكرى 01</div><img src="photo1.jpg"><div class="memory-caption">أخويا وحبيبي ⚡🤍</div></div></div>
+            <div class="timeline-item"><div class="timeline-dot"></div><div class="memory-frame" onclick="openLightbox(1)"><div class="memory-num">ذكرى 02</div><img src="photo2.jpg"><div class="memory-caption">سندي وضهري في الدنيا 🦾</div></div></div>
+            <div class="timeline-item"><div class="timeline-dot"></div><div class="memory-frame" onclick="openLightbox(2)"><div class="memory-num">ذكرى 03</div><img src="photo3.jpg"><div class="memory-caption">الرجولة والجدعنة كلها 🔥</div></div></div>
+            <div class="timeline-item"><div class="timeline-dot"></div><div class="memory-frame" onclick="openLightbox(3)"><div class="memory-num">ذكرى 04</div><img src="photo4.jpg"><div class="memory-caption">أجدع صاحب وأغلى أخ 💙</div></div></div>
+            <div class="timeline-item"><div class="timeline-dot"></div><div class="memory-frame" onclick="openLightbox(4)"><div class="memory-num">ذكرى 05</div><img src="photo5.jpg"><div class="memory-caption">البطل ميدو 👑</div></div></div>
+            <div class="timeline-item"><div class="timeline-dot"></div><div class="memory-frame" onclick="openLightbox(5)"><div class="memory-num">ذكرى 06</div><img src="photo6.jpg"><div class="memory-caption">أحلى الأيام والذكريات ✨</div></div></div>
+            <div class="timeline-item"><div class="timeline-dot"></div><div class="memory-frame" onclick="openLightbox(6)"><div class="memory-num">ذكرى 07</div><img src="photo7.jpg"><div class="memory-caption">منور حياتنا دايماً 🌟</div></div></div>
+            <div class="timeline-item"><div class="timeline-dot"></div><div class="memory-frame" onclick="openLightbox(7)"><div class="memory-num">ذكرى 08</div><img src="photo8.jpg"><div class="memory-caption">ضحكتك بالدنيا 🤍</div></div></div>
+            <div class="timeline-item"><div class="timeline-dot"></div><div class="memory-frame" onclick="openLightbox(8)"><div class="memory-num">ذكرى 09</div><img src="photo9.jpg"><div class="memory-caption">فرحة البيت والعيلة 🎉</div></div></div>
+            <div class="timeline-item"><div class="timeline-dot"></div><div class="memory-frame" onclick="openLightbox(9)"><div class="memory-num">ذكرى 10</div><img src="photo10.jpg"><div class="memory-caption">كل سنة وأنت طيب يا غالي 🎂</div></div></div>
+            <div class="timeline-item"><div class="timeline-dot"></div><div class="memory-frame" onclick="openLightbox(10)"><div class="memory-num">ذكرى 11</div><img src="photo11.jpg"><div class="memory-caption">ربنا يحفظك ليا طول العمر 🤍⚡</div></div></div>
         </div>
         <button class="btn" onclick="location.reload()" style="margin-top: 30px;">إعادة العرض من الأول ↻</button>
     </div>
@@ -210,14 +219,12 @@
                     dots.forEach(d => d.classList.add('filled'));
                     
                     let vid = document.getElementById('introVideo');
-                    // خدعة برمجية: بندي أمر تشغيل الفيديو في نفس لحظة الضغطة عشان المتصفح ميمنعوش
+                    
+                    // شلنا التأخير عشان الشاشة تقلب فوراً
+                    nextSec('sec1', 'secVideo');
+                    
                     vid.play().catch(e => console.log("المتصفح منع التشغيل التلقائي"));
-
-                    // بعد نص ثانية ننقله لشاشة الفيديو وهو شغال
-                    setTimeout(() => {
-                        nextSec('sec1', 'secVideo');
-                        vid.onended = function() { skipVideo(); };
-                    }, 400);
+                    vid.onended = function() { skipVideo(); };
 
                 } else if (enteredPin.length === 4) {
                     const dotsContainer = document.getElementById('dots');
